@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Financial Optimalisation Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+
+	<div class="intro">
+		<h1>
+            Financial Prospect Calculator
+		</h1>
+		<!-- <p>
+			This is a small calculator that's supposed to calculate the amount of trees needed to get the oxygen levels of a certain planet to match those of earth. Along with other related funtions
+		</p> -->
+
+		<!-- <div class="learnmore">
+			<a href="info.html">Learn more</a>
+		</div> -->
+	</div>
+
+    <div id="financieelModel">
+        <div class="output">
+            <div>Resultaat Kapitaal</div>
+            <!-- <div v-if="resultaatKapitaal != 0">&euro; {{ Math.floor(gemiddeldArray[gemiddeldArray.length-1]) }}</div> -->
+            <div v-if="resultaatKapitaal != 0">&euro; {{ resultaatKapitaal }}</div>
+        </div>
+        <div class="output">
+            <div>Positief Vooruitzicht</div>
+            <div v-if="positiefVarray.length != 0">&euro; {{ Math.floor(positiefVarray[positiefVarray.length-1]) }}</div>
+        </div>
+        <div class="output">
+            <div>Negatief Vooruitzicht</div>
+            <div v-if="negatiefVarray.length != 0">&euro; {{ Math.floor(negatiefVarray[negatiefVarray.length-1]) }}</div>
+        </div>
+        <div class="output">
+            <div>Totale Inleg</div>
+            <div v-if="negatiefVarray.length != 0">&euro; {{ totaleInleg }}</div>
+        </div>
+        <div class="output">
+            <div>Netto Winst</div>
+            <div v-if="negatiefVarray.length != 0">&euro; {{ nettoWinst }}</div>
+        </div>
+            <!-- <div>maandelijke bijdrage</div> -->
+	
+	    <div class="inputform">
+
+	    	<div class="financieleData">
+
+                <!-- 
+                    startkapitaal (schuivbaar), 
+                    rendement, 
+                    looptijd, 
+                    doelvermogen, 
+                    inflatie, 
+                    overige inverseringen, 
+                    positief vooruitzicht
+                    negatief vooruitzicht
+                    gemiddeld vooruitzicht 
+                -->
+                <div>
+                    <p>Start Kapitaal</p>
+                    <input id="startkapitaal" v-model="startkapitaal" type="number" placeholder="Start Kapitaal">
+                </div>
+                <div>
+                    <p>Maandelijkse bijdrage</p>
+                    <input id="maandelijkebijdrage" v-model="maandelijkebijdrage" type="number" placeholder="maandelijkebijdrage">
+                </div>
+                <div>
+                    <p>rendement</p>
+                    <input id="rendement" v-model="rendement" type="number" placeholder="rendement">
+                </div>
+                <div>
+                    <p>looptijd</p>
+                    <input id="looptijd" v-model="looptijd" type="number" placeholder="looptijd">
+                </div>
+                <div>
+                    <p>doelvermogen</p>
+                    <input id="doelvermogen" v-model="doelvermogen" type="number" placeholder="doelvermogen">
+                </div>
+                <div>
+                    <p>inflatie</p>
+                    <input id="inflatie" v-model="inflatie" type="number" placeholder="inflatie">
+                </div>
+                <div>
+                    <p>positiefV</p>
+                    <input id="positiefV" v-model="positiefV" type="number" placeholder="positiefV">
+                </div>
+                <div>
+                    <p>negatiefV</p>
+                    <input id="negatiefV" v-model="negatiefV" type="number" placeholder="negatiefV">
+                </div>
+
+                <!-- to be implemented later -->
+                <!-- <div id="overigeInvesteringen">
+                    <p>Random Toevoegingen</p>
+                    <input type="number" placeholder="bedrag">
+                    <input type="number" placeholder="maand">
+                    <input type="number" placeholder="hoeveelste jaar">
+                </div> -->
+            </div>
+            <button @click="berekenEindKapitaal">Bereken Eind Kaptiaal</button>
+            <button @click="berekenStartKapitaal">Bereken Start Kaptiaal</button>
+	    	<!-- Preload -->
+	    	<button type="submit" @click="financePreload">voorbeeld</button>
+	    	<button type="button" @click="showchart">Show chart</button>
+	    </div>
+    </div>
+
+    <div class="data">
+        <canvas id="myChart" width="400" height="100"></canvas>
+    </div>
+	<script src="script.js"></script>
+</body>
+</html>

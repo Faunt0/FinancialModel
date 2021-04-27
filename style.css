@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	/* background-color: rgb(61, 61, 61); */
+}
+html {
+	margin: auto;
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+    /* display: grid; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* grid-template-columns: auto; */
+    background-image: linear-gradient(200deg, lightblue, orchid);
+    overflow: hidden;
+    /* background-image: radial-gradient(lightsalmon, lightblue); */
+}
+input {
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 7px;
+    border-radius: 5px;
+    
+}
+body {
+    display: grid;
+    grid-template-columns: auto 70% auto;
+    grid-template-rows: 10em 1fr 1fr;
+  
+}
+.intro {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    /* justify-self: center; */
+
+    /* grid-column: 2/3;
+    grid-row: 1/2; */
+    justify-self: center;
+    align-self: center;
+    padding: 2em;
+
+    border-bottom: 2px solid black;
+    /* width: 70%; */
+}
+#financieelModel {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 50%;
+    justify-self: center;
+}
+#financieelModel .output {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-bottom: 2px solid black;
+}
+#financieelModel .output:first-child {
+    color: green;
+    /* padding: 0.5em; */
+    /* text-shadow: black; */
+}
+#financieelModel .output div {
+    padding: 10px;
+}
+#financieelModel .output div:first-child {
+    border-right: 2px solid black;
+    /* border-top: 2px solid black; */
+}
+#financieelModel .output div:nth-child(2) {
+    text-align: center;
+    /* border-right: 2px solid black; */
+}
+.financieleData {
+    margin: 2em auto;
+}
+.financieleData div {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin: 5px auto;
+}
+.data {
+    grid-column: 2/3;
+    grid-row: 3/4;
+
+    /* justify-self: center; */
+    align-self: center;
+}
